@@ -1,5 +1,8 @@
 # Idea
 
+### Link Utili
+- []
+
 ### Caratteristiche Generali
 - 2D (difficoltà nella parte grafica);
 - Unity (non conosciamo bene pygame, limitazione con processing);
