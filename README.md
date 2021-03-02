@@ -4,14 +4,12 @@
 - [Diario Di Bordo](https://docs.google.com/spreadsheets/d/1i7o-DaUBjdFxjFVex9U1yanGdgBvGvw5iJV6RIwK5No/edit?usp=sharing)
 
 ### Caratteristiche Generali
-- 2D (difficoltà nella parte grafica);
-- Unity (non conosciamo bene pygame, limitazione con processing);
+- Grafica 2D (difficoltà nella parte grafica);
+- pygame (complicazione con Unity, limitazione con processing);
+- OpenCV (complicazione con OpenPos).
 
 ### Idee
-- Tetris;
-- Pacman (Generare la mappa a random contando le dimensioni della stanza);
-- Videogioco simile a Final Fight;
-- Videogioco tipo Super Mario (movimeti sul posto);
-- Videogioco tipo Space Invaders;
-- Gioco di corsa con le auto;
-- Gioco tipo Snake VS Block
+- Videogioco tipo Pacman;
+- Videogioco tipo Super Mario;
+- Videogioco di corsa con le auto;
+- Videogioco tipo Snake VS Block.
