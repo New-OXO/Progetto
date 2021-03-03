@@ -5,7 +5,7 @@
 
 ### Caratteristiche Generali
 - Grafica 2D (difficoltà nella parte grafica);
-- Javascript (PS5.js, PosNet);
+- Javascript (P5.js, PosNet);
 - OpenCV (complicazione con OpenPos).
 
 ### Idee
