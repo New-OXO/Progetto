@@ -5,8 +5,8 @@
 
 ### Caratteristiche Generali
 - Grafica 2D (difficoltà nella parte grafica);
-- Javascript (P5.js, PosNet);
-- OpenCV (complicazione con OpenPos).
+- Javascript (P5.js);
+- PosNet (unico che si può utilizzare con Javascript).
 
 ### Idee
 - Movimento tronco: Videogioco tipo Snake Vs Blocks;       [V]
