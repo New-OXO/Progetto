@@ -9,7 +9,8 @@
 - OpenCV (complicazione con OpenPos).
 
 ### Idee
-- Videogioco tipo Pacman;
-- Videogioco tipo Super Mario;
-- Videogioco di corsa con le auto;
-- Videogioco tipo Snake VS Block.
+- Movimento tronco: Videogioco tipo Snake Vs Blocks;       [V]
+- Movimento arti superiori: (Limitazione disegno);         [?]
+- Funzionamento cognitivo: (Limitazione memoria);          [X]
+- Associazione simbolo-tasto: Videogioco tipo Fruit Ninja; [V]
+- Dual task: Tipo sfida a tempo.                           [V]
