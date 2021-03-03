@@ -5,7 +5,7 @@
 
 ### Caratteristiche Generali
 - Grafica 2D (difficoltà nella parte grafica);
-- pygame (complicazione con Unity, limitazione con processing);
+- Possibili scelte: Unity, pygame, javascript;
 - OpenCV (complicazione con OpenPos).
 
 ### Idee
