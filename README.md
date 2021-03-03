@@ -12,5 +12,5 @@
 - Movimento tronco: Videogioco tipo Snake Vs Blocks;       [V]
 - Movimento arti superiori: (Limitazione disegno);         [?]
 - Funzionamento cognitivo: (Limitazione memoria);          [X]
-- Associazione simbolo-tasto: Videogioco tipo Fruit Ninja; [V]
+- Associazione simbolo-tasto: Videogioco tipo Fruit Ninja; [?]
 - Dual task: Tipo sfida a tempo.                           [V]
