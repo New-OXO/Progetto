@@ -3,7 +3,7 @@ let video, poseNet, pose;
 
 function initPoseNet() {
     video = createCapture(VIDEO);
-    //video.size(320, 240);
+    //video.size(320, 240); //Se è troppo lento scommenta questa linea
     
     poseNet = ml5.poseNet(video, () => {
         console.log('PoseNet ready!');
