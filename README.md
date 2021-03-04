@@ -17,7 +17,7 @@ Il gioco prende ispirazione dal videogioco [Snake Vs Blocks](https://play.google
 - Nicolò Maffi: Team Leader, Programmatore, Designer;
 - Gabriele Ferrero: Programmatore, Designer, Tecnico del suono;
 - Isabella Bianco: Programmatore, Designeer, Tecnico del suono;
-- </br></br>
+</br></br>
 
 ### Ringraziamenti
 - I.I.T. (Istituto Italiano di Tecnologia);
