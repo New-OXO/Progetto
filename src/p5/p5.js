@@ -3,11 +3,10 @@ let video, poseNet, pose;
 
 function initPoseNet() {
     video = createCapture(VIDEO);
-    video.size(320, 200);
     
-    poseNet = ml5.poseNet(this.video, () => { console.log('PoseNet ready!'); });
+    poseNet = ml5.poseNet(video, () => { console.log('PoseNet ready!'); });
     
-    //video.hide();
+    video.hide();
     
     poseNet.on('pose', (poses) => {
         console.log(poses);
@@ -17,11 +16,11 @@ function initPoseNet() {
     });
 }
 
-function setup() {
-    initPoseNet();
-    
+function setup() {    
     let cnv = createCanvas(windowWidth / 2, windowHeight);
     cnv.position((windowWidth - width) / 2, (windowHeight - height) / 2);
+    
+    initPoseNet();
     
     player = new Player(color(255, 255, 255), 50, 15, width, height);
     food = new HotDogs(5, 10, width, height);
@@ -35,12 +34,12 @@ function draw() {
         ellipse(pose.nose.x, pose.nose.y, 16);
     }
     
-    player.draw();
+    /*player.draw();
     if(false) {
         player.moveLeft();
     } else if(false) {
         player.moveRight();
     }
     
-    food.move();
+    food.move();*/
 }
