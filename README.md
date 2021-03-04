@@ -11,7 +11,7 @@ Il gioco prende ispirazione dal videogioco [Snake Vs Blocks](https://play.google
 ### Tecnologie Utilizzate
 - Libreria di Javascript P5.js utilizzata per lo sviluppo del videogioco;
 - Libreria di Javascript PoseNet utilizzata per la rilevazione dei movimenti;
-- </br></br>
+</br></br>
 
 ### Componenti Del Team
 - Nicolò Maffi: Team Leader, Programmatore, Designer;
