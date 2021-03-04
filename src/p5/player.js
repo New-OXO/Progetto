@@ -7,6 +7,7 @@ function Player(cl, dimCrc, speed, scrW, scrH) {
     this.y = scrH - scrH / 4;
     this.scrW = scrW;
     this.scrH = scrH;
+    this.cmd = new PlayerCmd();
 }
 
 Player.prototype.moveLeft = function() {
