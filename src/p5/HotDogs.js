@@ -14,7 +14,7 @@ HotDogs.prototype.generate = function() {
     this.hds = [];
     
     for(let i = 0; i < this.qt; i++) {
-        this.hds.push(new HotDog(color('#f9906f'), 5, int(random(2000, 4000)), this.scrW, this.scrH));
+        this.hds.push(new HotDog(color('#f9906f'), 3, int(random(2000, 4000)), this.scrW, this.scrH));
     }
 };
 

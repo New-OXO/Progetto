@@ -1,7 +1,8 @@
 let player, food;
 
 function setup() {
-    createCanvas(windowWidth / 2, windowHeight);
+    let cnv = createCanvas(windowWidth / 2, windowHeight);
+    cnv.position((windowWidth - width) / 2, (windowHeight - height) / 2);
     
     player = new Player(color(255, 255, 255), 50, 15, width, height);
     food = new HotDogs(5, 10, width, height);

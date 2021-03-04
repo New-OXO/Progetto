@@ -2,7 +2,6 @@ function HotDog(cl, speed, wait, scrW, scrH) {
     this.cl = cl;
     this.speed = speed;
     this.wait = wait;
-    this.ready = false;
     this.y = 0;
     this.x = 0;
     this.scrW = scrW;
@@ -12,7 +11,7 @@ function HotDog(cl, speed, wait, scrW, scrH) {
 }
 
 HotDog.prototype.generate = function() {
-    this.y = 0;
+    this.y = int(random(-this.scrH, 0));
     this.x = int(random(0, this.scrW));
 };
 
@@ -32,14 +31,6 @@ HotDog.prototype.draw = function() {
 };
 
 HotDog.prototype.move = function() {
-    if(!this.ready) {
-        setTimeout(() => {
-            this.translate();
-            this.draw();
-            this.ready = !this.ready;
-        }, this.wait);
-    } else {
-        this.translate();
-        this.draw();
-    }
+    this.translate();
+    this.draw();
 };
