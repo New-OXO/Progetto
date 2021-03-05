@@ -14,7 +14,6 @@ Per aumentare la dimensione del bassotto si dovranno raccogliere degli hot dog c
 ### Tecnologie Utilizzate
 - Librerie di Javascript P5.js/P5.play utilizzate per lo sviluppo del videogioco;
 - Libreria di Javascript PoseNet utilizzata per la rilevazione dei movimenti;
-</br></br>
 
 #### PoseNet
 ![dimostrazione](https://raw.githubusercontent.com/tensorflow/tfjs-models/master/posenet/demos/camera.gif)
@@ -27,6 +26,7 @@ La sua logica è simile alla tecnologia di OpenPose infatti riesce ad identifica
 
 p5.js è una libreria di Javascript open source che segue la dottrina di Processing.
 Permette la realizzazione di effetti grafici ed animazioni.
+</br></br>
 
 ### Componenti Del Team
 - Nicolò Maffi: Team Leader, Programmatore, Designer;
