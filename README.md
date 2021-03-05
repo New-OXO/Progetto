@@ -1,5 +1,5 @@
 # Progetto New-OXO 
-</br></br>
+</br>
 
 [Diario Di Bordo](https://docs.google.com/spreadsheets/d/1i7o-DaUBjdFxjFVex9U1yanGdgBvGvw5iJV6RIwK5No/edit?usp=sharing)
 </br></br>
