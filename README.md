@@ -13,7 +13,7 @@ Per aumentare la dimensione del serpente si dovranno raccogliere delle palline c
 </br></br>
 
 ### Tecnologie Utilizzate
-- Libreria di Javascript P5.js utilizzata per lo sviluppo del videogioco;
+- Librerie di Javascript P5.js/P5.play utilizzate per lo sviluppo del videogioco;
 - Libreria di Javascript PoseNet utilizzata per la rilevazione dei movimenti;
 </br></br>
 
