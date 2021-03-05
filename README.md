@@ -5,7 +5,11 @@
 </br></br>
 
 ### Descrizione
-Il gioco prende ispirazione dal videogioco [Snake Vs Blocks](https://play.google.com/store/apps/details?id=com.bentostudio.ballsvsblocks&hl=it&gl=US)...
+Il gioco prende ispirazione dal videogioco [Snake Vs Blocks](https://play.google.com/store/apps/details?id=com.bentostudio.ballsvsblocks&hl=it&gl=US).
+Il videogioco consiste nel comandare uno snake che avanza automaticamente nel percorso durante tutto il gioco, le uniche direzioni che si possono comandare sono il movimento a destra ed il movimento a sinistra.
+Lo scopo del gioco è distruggere il maggior numero di ostacoli possibile. Per distruggere un ostacolo il serpente deve avere una dimensioni pari o maggiore al
+punteggio che è contrassegnato sull'ostacolo stesso, se la dimensione invece è minore del punteggio il gioco finisce.
+Per aumentare la dimensione del serpente si dovranno raccogliere delle palline che di tanto in tanto sono presenti nel percorso.
 </br></br>
 
 ### Tecnologie Utilizzate
