@@ -1,3 +1,5 @@
+const PIXEL_OF_SINGLE_STEP = 25;
+
 class Player{
 
     constructor(){
@@ -19,11 +21,28 @@ class Player{
         this.setTexture();
     }
 
-    move(x) {
-        if(x<0 || x>WIDTH){
+    move(direction) {
+        var pixel=0;
+        switch(direction){
+            case "center_screen":
+                this.x = WIDTH/2;
+                break;
+            case "equal":
+                break;
+            case "left":
+                pixel=-PIXEL_OF_SINGLE_STEP;
+                break;
+            case "right":
+                pixel=PIXEL_OF_SINGLE_STEP;
+                break;
+        }
+
+        if(this.x+pixel<0 || this.x+pixel>WIDTH){
             return;
         }
-        this.x=WIDTH-x;
+        
+        this.x+=pixel;
+
         for(let i=0; i<this.body.length; i++){
             pause((i+1)*20);
             this.body[i][0]=WIDTH-x;
