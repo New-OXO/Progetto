@@ -72,15 +72,12 @@ class Player{
 
     setTexture(){
         this.sprite_head = createSprite(this.dimW, this.dimH);
-        this.sprite_head.setCollider("rectangle", 0, 0, this.dimW, this.dimH);
         this.sprite_head.addImage('');
 
         this.sprite_body = createSprite(this.dimW, this.dimH);
-        this.sprite_body.setCollider("rectangle", 0, 0, this.dimW, this.dimH);
         this.sprite_body.addImage('');
 
         this.sprite_tail = createSprite(this.dimW, this.dimH);
-        this.sprite_tail.setCollider("rectangle", 0, 0, this.dimW, this.dimH);
         this.sprite_tail.addImage('');
     }
     
