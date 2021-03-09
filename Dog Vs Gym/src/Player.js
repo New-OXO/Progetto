@@ -14,7 +14,7 @@ class Player{
 
         this.sprite_head;
         this.sprite_body;
-        this,sprite_tail;
+        this.sprite_tail;
 
         this.setTexture();
     }
