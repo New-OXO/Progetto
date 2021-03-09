@@ -30,23 +30,23 @@ class SensorPosition{
         });
     }
 
-    getPose(){return this.pose;}
-
     getDirection(){
-        var posX = WIDTH-this.pose.nose.x;
-        var result;
-        if(posX>WIDTH/2-RANGE_CENTER/2 && posX<WIDTH/2+RANGE_CENTER/2){
-            result="center_screen";
-        }else if(posX>=this.posX_pre-RANGE_EQUAL/2 && posX<=this.posX_pre+RANGE_EQUAL/2){
-            result = "equal";
-        }else if(posX<this.posX_pre-RANGE_EQUAL/2){
-            result = "left";
-        }else if(posX>this.posX_pre+RANGE_EQUAL/2){
-            result = "right"
-        }
+        if(this.pose){
+            var posX = WIDTH-this.pose.nose.x;
+            var result;
+            if(posX>WIDTH/2-RANGE_CENTER/2 && posX<WIDTH/2+RANGE_CENTER/2){
+                result="center_screen";
+            }else if(posX>=this.posX_pre-RANGE_EQUAL/2 && posX<=this.posX_pre+RANGE_EQUAL/2){
+                result = "equal";
+            }else if(posX<this.posX_pre-RANGE_EQUAL/2){
+                result = "left";
+            }else if(posX>this.posX_pre+RANGE_EQUAL/2){
+                result = "right"
+            }
 
-        this.posX_pre = posX;
-        return result;
+            this.posX_pre = posX;
+            return result;
+        }
     }  
 }
 
