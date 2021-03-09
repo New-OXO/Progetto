@@ -6,9 +6,9 @@
 
 ### Descrizione
 Il videogioco consiste nel comandare un bassotto che avanza automaticamente nel percorso durante tutto il gioco, le uniche direzioni che si possono comandare sono il movimento a destra ed il movimento a sinistra.
-Lo scopo del gioco è cercare di mangiare più hot dog possibili in modo da sopravvivere alle ore di palestra. Per distruggere un ostacolo il bassotto deve avere una dimensioni pari o maggiore al
+Lo scopo del gioco è cercare di mangiare più hotdog possibili in modo da sopravvivere alle ore di palestra. Per distruggere un ostacolo il bassotto deve avere una dimensioni pari o maggiore al
 punteggio che è contrassegnato sull'ostacolo stesso, se la dimensione invece è minore del punteggio il gioco finisce.
-Per aumentare la dimensione del bassotto si dovranno raccogliere degli hot dog che di tanto in tanto sono presenti nel percorso.
+Per aumentare la dimensione del bassotto si dovranno raccogliere degli hotdog che di tanto in tanto sono presenti nel percorso.
 
 ![Immagine di gioco](https://raw.githubusercontent.com/New-OXO/Progetto/main/src/icona.png)
 </br></br>
