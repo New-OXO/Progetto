@@ -43,9 +43,10 @@ class Player{
         
         this.x+=pixel;
 
-        for(let i=0; i<this.body.length; i++){
-            pause((i+1)*20);
-            this.body[i][0]=WIDTH-x;
+        for(let i=0; i < this.body.length; i++) {
+            setTimeout(() => {
+                this.body[i][0] = this.x;
+            }, 20 * i);
         }
     }
 
@@ -90,14 +91,14 @@ class Player{
     }
 
     setTexture(){
-        this.sprite_head = createSprite(this.dimW, this.dimH);
-        this.sprite_head.addImage('');
+        this.sprite_head = createSprite(0, 0, this.dimW, this.dimH);
+        this.sprite_head.addImage(loadImage('./dog_head.jpeg'));
 
-        this.sprite_body = createSprite(this.dimW, this.dimH);
-        this.sprite_body.addImage('');
+        this.sprite_body = createSprite(0, 0, this.dimW, this.dimH);
+        this.sprite_body.addImage(loadImage('./dog_body.jpeg'));
 
-        this.sprite_tail = createSprite(this.dimW, this.dimH);
-        this.sprite_tail.addImage('');
+        this.sprite_tail = createSprite(0, 0, this.dimW, this.dimH);
+        this.sprite_tail.addImage(loadImage('./dog_tail.jpeg'));
     }
     
     updateScore(){
