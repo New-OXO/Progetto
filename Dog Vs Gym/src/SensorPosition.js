@@ -33,7 +33,7 @@ class SensorPosition{
     getPose(){return this.pose;}
 
     getDirection(){
-        var posX = this.pose.nose.x;
+        var posX = WIDTH-this.pose.nose.x;
         var result;
         if(posX>WIDTH/2-RANGE_CENTER/2 && posX<WIDTH/2+RANGE_CENTER/2){
             result="center_screen";
