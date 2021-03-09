@@ -8,17 +8,17 @@ class ObjectGame{
         this.speed = 1;
         this.score = score;
 
-        this.sprite.position[0] = x*this.dimW;
-        this.sprite.position[1] = 0;
+        this.sprite.position.x= x*this.dimW;
+        this.sprite.position.y = 0;
 
         this.path_image = './';
         this.sprite;
         this.setTexture();
     }
 
-    getX(){return this.sprite.position[0];}
+    getX(){return this.sprite.position.x;}
 
-    getY(){return this.sprite.position[1];}
+    getY(){return this.sprite.position.y;}
 
     getDimW(){return this.dimW;}
 
@@ -34,8 +34,8 @@ class ObjectGame{
     }
 
     move(){
-        if(this.sprite.position[1] < this.scrH) {
-            this.sprite.position[1] += this.speed;
+        if(this.sprite.position.y < this.scrH) {
+            this.sprite.position.y += this.speed;
             return true;
         }else{
             return false;
