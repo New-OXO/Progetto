@@ -56,12 +56,12 @@ class Container{
             else{
                 n_random_ob = this.getRandomNumber(NUMBER_MIN_OBSTACLE, AVERAGE_NUMBER_OBSTACLE);
             }
-            if(Math.random() > (this.probability_zero/100)){
+            if(Math.random() > (this.probability_zero_hotdog/100)){
                 n_random_hd = this.getRandomNumber(NUMBER_MIN_HOTDOG, NUMBER_MAX_HOTDOG);
             }
         }
         this.newSetOfObstacle(n_random_ob, score_dog);
-        //this.newSetOfHotdog(n_random_hd, score_dog);
+        this.newSetOfHotdog(n_random_hd, score_dog);
         
     }
 
