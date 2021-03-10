@@ -1,6 +1,6 @@
 class ObjectGame{
 
-    constructor(x, score){
+    constructor(x, score, imagePath){
         this.scrW = WIDTH;
         this.scrH = HEIGHT;
         this.dimW = WIDTH/10;
@@ -8,7 +8,7 @@ class ObjectGame{
         this.speed = this.dimH;
         this.score = score;
         this.sprite;
-        this.path_image = './';
+        this.path_image = imagePath;
         this.setTexture();
         this.x = x*this.dimW;
         this.y = 0;
@@ -36,7 +36,7 @@ class ObjectGame{
     move(){
         if(this.y < this.scrH) {
             this.sprite.position.y += this.speed;
-            this.y +=this.speed;
+            this.y += this.speed;
             return true;
         }else{
             return false;
@@ -46,7 +46,7 @@ class ObjectGame{
     setTexture(){
         this.sprite = createSprite(0, 0, this.dimW, this.dimH);
         this.sprite.setCollider("rectangle", 0, 0, this.dimW, this.dimH);
-        //this.sprite.addImage(loadImage('./image.png'));
+        this.sprite.addImage(loadImage(this.path_image));
     }
     
     updateScore(){

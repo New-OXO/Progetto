@@ -1,110 +1,97 @@
-const PIXEL_OF_SINGLE_STEP = 25;
+const TX_WIDTH = 64;
+const TX_HEIGHT = 64;
 
-class Player{
+const WAIT = 20;
 
-    constructor(){
-
-        this.dimW = this.WIDTH/20/3;
-        this.dimH = this.HEIGHT/20/3;
-
+class Player {
+    constructor() {
         this.score = 1;
 
-        this.x = WIDTH/2;
-        this.y = HEIGHT-HEIGHT/4;
+        this.speed = 15;
 
-        this.body = new Array([this.x, this.y+this.dimH]);
+        this.dog = [];
 
-        this.sprite_head;
-        this.sprite_body;
-        this.sprite_tail;
+        this.dog.push(createSprite(WIDTH / 2, HEIGHT / 2, TX_WIDTH, TX_HEIGHT));
+        this.dog[0].addImage(loadImage('../assets/img/dog0.png'));
+        this.dog[0].setCollider('rectangle', 0, 0, TX_WIDTH, TX_HEIGHT);
 
-        this.setTexture();
+        this.dog.push(createSprite(WIDTH / 2, HEIGHT / 2 + TX_HEIGHT, TX_WIDTH, TX_HEIGHT));
+        this.dog[1].addImage(loadImage('../assets/img/dog1.png'));
     }
 
+    getX() {
+        return this.x;
+    }
+
+    getY() {
+        return this.y;
+    }
+
+    getScore() {
+        return this.score;
+    }
+
+    setSpeed(speed) {
+        this.speed = speed;
+    }
+
+    newSprite() {
+        this.dog[this.dog.length - 1].position.y = HEIGHT / 2 + TX_HEIGHT * ++this.score;
+
+        this.dog.splice(this.dog.length - 1, 0, createSprite(this.dog[this.dog.length - 1].position.x,
+                                                             HEIGHT / 2 + TX_HEIGHT * (this.score - 1), TX_WIDTH, TX_HEIGHT));
+        this.dog[this.dog.length - 2].addImage(loadImage('../assets/img/dog2.png'));
+    }
+
+    //main
     move(direction) {
-        var pixel=0;
-        switch(direction){
-            case "center_screen":
-                this.x = WIDTH/2;
+        let offset = 0;
+
+        switch(direction) {
+            case 'CENTER_SCREEN':
+                this.dog[0].position.x = WIDTH / 2;
                 break;
-            case "equal":
+
+            case 'LEFT':
+                offset -= this.speed;
                 break;
-            case "left":
-                pixel=-PIXEL_OF_SINGLE_STEP;
-                break;
-            case "right":
-                pixel=PIXEL_OF_SINGLE_STEP;
+
+            case 'RIGHT':
+                offset += this.speed;
                 break;
         }
 
-        if(this.x+pixel<0 || this.x+pixel>WIDTH){
+        if(this.dog[0].position.x + offset < 0 || this.dog[0].position.x + offset > WIDTH) {
             return;
         }
-        
-        this.x+=pixel;
 
-        for(let i=0; i < this.body.length; i++) {
+        this.dog[0].position.x += offset;
+        for(let i = 1; i < this.dog.length; i++) {
             setTimeout(() => {
-                this.body[i][0] = this.x;
-            }, 20 * i);
+                this.dog[i].position.x += offset;
+            }, WAIT * i);
         }
     }
 
+    //main
     draw() {
-        this.sprite_head.position.x = this.body[0][0];
-        this.sprite_head.position.y = this.body[0][1];
-        drawSprite(this.sprite_head);
-
-        for(let i=1; i<=this.body.length-1; i++){
-            this.sprite_body.position.x = this.body[i][0];
-            this.sprite_body.position.y = this.body[i][1];
-            drawSprite(this.sprite_body);
+        for(let i = 0; i < this.dog.length; i++) {
+            drawSprite(this.dog[i]);
         }
 
-        this.sprite_tail.position.x = this.body[this.body.length-1][0];
-        this.sprite_tail.position.y = this.body[this.body.length-1][1];
-        drawSprite(this.sprite_tail);
-
-        
-        this.updateScore(); 
+        this.writeScore();
     }
-
-    getX(){return this.x;}
-
-    getY(){return this.y;}
-
-    getDimW(){return this.dimW;}
-
-    getDimH(){return this.dimH;}
-
-    getScore(){return this.score;}
-
-    setScore(offset){this.score+=offset;}  // da creare dei controlli
 
     grow(num) {    
         for(let i = 0; i < num; i++) {
-            x = this.x;
-            y = this.y + this.dimH * ++this.score;
-            
-            this.body.push([x,y]);
+            this.newSprite();
         }
     }
 
-    setTexture(){
-        this.sprite_head = createSprite(0, 0, this.dimW, this.dimH);
-        this.sprite_head.addImage(loadImage('./dog_head.jpeg'));
-
-        this.sprite_body = createSprite(0, 0, this.dimW, this.dimH);
-        this.sprite_body.addImage(loadImage('./dog_body.jpeg'));
-
-        this.sprite_tail = createSprite(0, 0, this.dimW, this.dimH);
-        this.sprite_tail.addImage(loadImage('./dog_tail.jpeg'));
+    writeScore(){
+        fill('#000000');
+        textSize(TX_HEIGHT);
+        textAlign(CENTER, CENTER);
+        text(this.score, this.dog[0].position.x + TX_WIDTH, this.dog[0].position.y);
     }
-    
-    updateScore(){
-        fill(0, 0, 0);
-        textSize(this.dimH);
-        text(this.score, this.x+this.dimW/4, this.y+this.dimH);
-    }
-
 }
