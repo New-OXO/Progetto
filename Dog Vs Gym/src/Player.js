@@ -1,5 +1,5 @@
-const TX_WIDTH = 64;
-const TX_HEIGHT = 64;
+const TX_WIDTH = WIDTH/20;
+const TX_HEIGHT = HEIGHT/20;
 
 const WAIT = 20;
 
@@ -11,36 +11,29 @@ class Player {
 
         this.dog = [];
 
-        this.dog.push(createSprite(WIDTH / 2, HEIGHT / 2, TX_WIDTH, TX_HEIGHT));
-        this.dog[0].addImage(loadImage('../assets/img/dog0.png'));
+        this.dog.push(createSprite(WIDTH / 2, HEIGHT - HEIGHT / 5, TX_WIDTH, TX_HEIGHT));
+        this.dog[0].addImage(loadImage('../assets/img/dog_head.jpeg'));
         this.dog[0].setCollider('rectangle', 0, 0, TX_WIDTH, TX_HEIGHT);
 
-        this.dog.push(createSprite(WIDTH / 2, HEIGHT / 2 + TX_HEIGHT, TX_WIDTH, TX_HEIGHT));
-        this.dog[1].addImage(loadImage('../assets/img/dog1.png'));
+        this.dog.push(createSprite(WIDTH / 2, HEIGHT - HEIGHT / 5 + TX_HEIGHT, TX_WIDTH, TX_HEIGHT));
+        this.dog[1].addImage(loadImage('../assets/img/dog_tail.jpeg'));
+
+        this.grow(1);
     }
 
-    getX() {
-        return this.x;
-    }
+    getX() {return this.dog[0].position.x;}
 
-    getY() {
-        return this.y;
-    }
+    getY() {return this.dog[0].position.y-TX_HEIGHT/2;}
 
-    getScore() {
-        return this.score;
-    }
+    getScore() {return this.score;}
 
-    setSpeed(speed) {
-        this.speed = speed;
-    }
+    setSpeed(speed) {this.speed = speed;}
 
     newSprite() {
-        this.dog[this.dog.length - 1].position.y = HEIGHT / 2 + TX_HEIGHT * ++this.score;
+        this.dog[this.dog.length - 1].position.y = HEIGHT - HEIGHT / 5 + TX_HEIGHT * ++this.score;
 
-        this.dog.splice(this.dog.length - 1, 0, createSprite(this.dog[this.dog.length - 1].position.x,
-                                                             HEIGHT / 2 + TX_HEIGHT * (this.score - 1), TX_WIDTH, TX_HEIGHT));
-        this.dog[this.dog.length - 2].addImage(loadImage('../assets/img/dog2.png'));
+        this.dog.splice(this.dog.length - 1, 0, createSprite(this.dog[this.dog.length - 1].position.x,HEIGHT - HEIGHT / 5 + TX_HEIGHT * (this.score - 1), TX_WIDTH, TX_HEIGHT));
+        this.dog[this.dog.length - 2].addImage(loadImage('../assets/img/dog_body.jpeg'));
     }
 
     //main
@@ -48,15 +41,15 @@ class Player {
         let offset = 0;
 
         switch(direction) {
-            case 'CENTER_SCREEN':
+            case 'center_screen':
                 this.dog[0].position.x = WIDTH / 2;
                 break;
 
-            case 'LEFT':
+            case 'left':
                 offset -= this.speed;
                 break;
 
-            case 'RIGHT':
+            case 'right':
                 offset += this.speed;
                 break;
         }
@@ -67,9 +60,9 @@ class Player {
 
         this.dog[0].position.x += offset;
         for(let i = 1; i < this.dog.length; i++) {
-            setTimeout(() => {
-                this.dog[i].position.x += offset;
-            }, WAIT * i);
+            //setTimeout(() => {
+                this.dog[i].position.x = this.dog[0].position.x;
+            //}, WAIT * i);
         }
     }
 
@@ -86,6 +79,14 @@ class Player {
         for(let i = 0; i < num; i++) {
             this.newSprite();
         }
+    }
+
+    remove(){
+        this.score-=1;
+        this.dog[this.dog.length-1].position.y=this.dog[this.dog.length-2].position.y;
+        this.dog[this.dog.length-1].position.x=this.dog[this.dog.length-2].position.x;
+        this.dog[this.dog.length-2].remove;
+        this.dog.splice(this.dog.length-2, 1); 
     }
 
     writeScore(){

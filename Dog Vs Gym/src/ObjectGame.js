@@ -1,19 +1,18 @@
 class ObjectGame{
 
-    constructor(x, score, imagePath){
-        this.scrW = WIDTH;
-        this.scrH = HEIGHT;
-        this.dimW = WIDTH/10;
-        this.dimH = HEIGHT/20;
-        this.speed = this.dimH;
+    constructor(x, score, image, dimW, dimH){
+        this.dimW = dimW;
+        this.dimH = dimH;
+        this.speed = this.dimH/SPEED;
         this.score = score;
         this.sprite;
-        this.path_image = imagePath;
+        this.image = image;
         this.setTexture();
         this.x = x*this.dimW;
-        this.y = 0;
+        this.y = -this.dimH;
         this.sprite.position.x = (x*this.dimW)+this.dimW/2;
-        this.sprite.position.y = 0+this.dimH/2;
+        this.sprite.position.y = -this.dimH/2;
+        this.sprite.debug = true;
     }
 
     getX(){return this.x;}
@@ -29,12 +28,14 @@ class ObjectGame{
     setScore(offset){this.score +=offset;}
 
     draw(){
+        imageMode(CORNER);
+        image(this.image, this.x, this.y, this.dimW, this.dimH);
         drawSprite(this.sprite);
         this.updateScore(); 
     }
 
     move(){
-        if(this.y < this.scrH) {
+        if(this.y < HEIGHT) {
             this.sprite.position.y += this.speed;
             this.y += this.speed;
             return true;
@@ -45,17 +46,22 @@ class ObjectGame{
 
     setTexture(){
         this.sprite = createSprite(0, 0, this.dimW, this.dimH);
-        this.sprite.setCollider("rectangle", 0, 0, this.dimW, this.dimH);
-        this.sprite.addImage(loadImage(this.path_image));
+        //this.sprite.setCollider("rectangle", 0, 0, this.dimW, this.dimH);
+        this.sprite.visible = false;
     }
     
     updateScore(){
         fill(0, 0, 0);
         textSize(this.dimH);
         text(this.score, this.x+this.dimW/4, this.y+this.dimH);
-        
     }
 
-    isHit(){}
+    isHit(){
+        if(this.score==0){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
 }

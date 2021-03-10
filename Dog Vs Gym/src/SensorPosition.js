@@ -1,5 +1,5 @@
 const RANGE_EQUAL = WIDTH/12;
-const RANGE_CENTER = WIDTH/4;
+const RANGE_CENTER = WIDTH/9;
 
 
 class SensorPosition{
@@ -32,21 +32,25 @@ class SensorPosition{
 
     getDirection(){
         if(this.pose){
-            var posX = WIDTH-this.pose.nose.x;
-            var result;
-            if(posX>WIDTH/2-RANGE_CENTER/2 && posX<WIDTH/2+RANGE_CENTER/2){
-                result="center_screen";
-            }else if(posX>=this.posX_pre-RANGE_EQUAL/2 && posX<=this.posX_pre+RANGE_EQUAL/2){
-                result = "equal";
-            }else if(posX<this.posX_pre-RANGE_EQUAL/2){
-                result = "left";
-            }else if(posX>this.posX_pre+RANGE_EQUAL/2){
-                result = "right"
-            }
 
+            let result;
+            let posX = this.pose.nose.x;
+            
+            if(posX - this.posX_pre > 0) {
+                result = 'left';
+            } else if(posX - this.posX_pre < 0) {
+                result = 'right';
+            } else {
+                result = 'NONE';
+            }
+            
+            player.setSpeed(Math.abs(posX - this.posX_pre));
+            
             this.posX_pre = posX;
+            
             return result;
+            }
         }
-    }  
-}
+}  
+
 
