@@ -52,8 +52,10 @@ class ObjectGame{
     //"Disegno lo score
     updateScore(){
         fill(0, 0, 0);
-        textSize(this.dimH);
-        text(this.score, this.x+this.dimW/4, this.y+this.dimH);
+        textFont(font);
+        textAlign(RIGHT, CENTER);
+        textSize(this.dimH*2/3);
+        text(this.score, this.x+this.dimW/2, this.sprite.position.y-this.dimH/6);
     }
 //La funzione is hit verifica che il punteggio sia a 0.
     isHit(){

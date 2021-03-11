@@ -14,6 +14,7 @@ class Hotdog extends ObjectGame{
         this.sprite.collide(player.dog[0], () => {
             console.log('Hotdog colpito!'+ this.score);
             player.grow(this.score);
+            player.playAudioEat();
             this.score=0;
         });
     }

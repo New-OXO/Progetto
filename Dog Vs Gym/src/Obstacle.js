@@ -12,7 +12,6 @@ class Obstacle extends ObjectGame{
     //Ridimensiono l'immagine e la passo come parametro al costruttore della classe madre
     constructor(x, score){
         let texture = loadImage('../assets/img/obstacle.png');
-        image(texture, 0, 0, WIDTH/10, HEIGHT/20);
         super(x, score, texture, WIDTH/10, HEIGHT/20);
     }
     //La funzione getColor calcola la gradazione di colore in base al punteggio
@@ -27,6 +26,11 @@ class Obstacle extends ObjectGame{
         if((dog_x>=this.x && dog_x<=this.x+(super.getDimW())) && (dog_y>=this.y && dog_y<=this.y+(super.getDimH()))){
             this.setScore(-1);
             player.remove();
+
+            if(!player.gym.isPlaying()){
+                player.playAudioGym();
+            }
+
             return true;
         }else{
             return false;
@@ -41,6 +45,15 @@ class Obstacle extends ObjectGame{
                 player.dog[0].position.x = this.x+this.dimW;
             }
         });*/
+    }
+
+    draw(){
+        this.getColor();
+        rect(this.x, this.y, this.dimW, this.dimH);
+        imageMode(CORNER);
+        image(this.image, this.x+this.dimW/2, this.y, WIDTH/20, HEIGHT/20);
+        drawSprite(this.sprite);
+        this.updateScore(); 
     }
 
 }

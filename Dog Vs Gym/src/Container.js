@@ -65,6 +65,7 @@ class Container{
             if(Math.random() < (this.probability_max_obstacles/100)){
                 //Se è minore la riga è piena 
                 n_random_ob = NUMBER_MAX_OBSTACLE;
+                player.playAudioBark();
             }else{
                 //Altrimenti etraggo a sorte la probabilità che non ci siano ostacoli
                 if(Math.random() < (this.probability_zero/100)){
