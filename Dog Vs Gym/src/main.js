@@ -13,7 +13,7 @@ let cnv; // variabile per finestra di gioco
 let start = false; 
 
 let startBtn;
-let playAgainBtn;
+
 let bk;
 
 let font;
@@ -24,28 +24,31 @@ let game, game_over, menu;
 
 let img_game_over;
 
+let dog_head, dog_tail, dog_body;
+
 function preload(){
     game = loadSound('../assets/snd/game_music.mp3');
     game_over = loadSound('../assets/snd/game_over_music.mp3');
     menu = loadSound('../assets/snd/menu_music.mp3');
-    img_game_over = loadImage('../assets/img/game_over.png')
+    img_game_over = loadImage('../assets/img/game_over.png');
+    dog_head = loadImage('../assets/img/dog_head.png');
+    dog_tail = loadImage('../assets/img/dog_tail.png');
+    dog_body = loadImage('../assets/img/dog_body.png');
+    font = loadFont("../assets/fonts/DIGIFIT.TTF");
+    meadow = loadImage("../assets/img/background_game.jpg");
 }
 
 function setup() {
 
     initCanvas();
-
-    font = loadFont("../assets/fonts/DIGIFIT.TTF");
     
     player = new Player();  // istanza classe Player
     container = new Container(2, 80, 90);  // probabilità che esca una linea completa di ostacoli , probabilità che escano zero ostacoli , probabilità che escano zero hotdog
     sensor = new SensorPosition();  // istanza classe SensorPosition
 
-    bk = loadImage('../assets/img/background.gif');
+    bk = loadImage('../assets/img/background_menu.gif');
 
     startBtn = new Button(WIDTH / 2 - 200, HEIGHT / 2 + 250, 400, 120, '../assets/img/startBtn.png');
-    playAgainBtn = new Button(WIDTH/2-200, HEIGHT*3/4-60, 400, 120, '../assets/img/play_again.jpeg')
-
 
     // Create a Speech Recognition object with callback
     speechRec = new p5.SpeechRec('en-US', gotSpeech);
@@ -72,6 +75,7 @@ function setup() {
             }
         }
     }
+
 }
 
 function draw() {
@@ -89,15 +93,18 @@ function draw() {
         if(mouseIsPressed) {    
             start = startBtn.isPressed(mouseX, mouseY);
         }
+        textAlign(CENTER, CENTER);
+        textSize(7);
+        text("Icons made byhttps://www.freepik.com from https://www.flaticon.com ---- Sound by https://www.zapsplat.com/", WIDTH/4, HEIGHT-HEIGHT/15);
     } else {
-
+        //background(meadow);
         menu.stop();
 
         if(!game.isPlaying()){
             game.play();
         }
 
-        background(128);
+        background(meadow);
 
         // se un ostacolo è colpito:
         if(container.isHit(player.getX(), player.getY())){
@@ -147,30 +154,18 @@ function bg() {
 }
 
 function gameOver(){
+
+    player.writeScore();
+
     game.stop();
     game_over.play();
-
-    pause(3000);
     
-    container.array_object = [];
-    container.draw();
-
-    player.dog = [];
-    //player.draw();
-
     fill(0, 0, 0, 200);
     rect(0, 0, WIDTH, HEIGHT);
 
-    image(img_game_over, WIDTH/2-828, HEIGHT/4-256, 1256, 512);
+    image(img_game_over, WIDTH/2-650, HEIGHT/2-256, 1256, 512);
+    
+    noLoop();
 
-    playAgainBtn.draw();
-
-    let condition=false;
-    while(!condition){
-        if(mouseIsPressed) {    
-            condition = playAgainBtn.isPressed(mouseX, mouseY);
-        }
-    }
-
-    location.reload();
+    
 }

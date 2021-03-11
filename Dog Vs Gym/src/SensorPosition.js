@@ -4,13 +4,17 @@ Classe per la gestione degli input da poseNet
 
 class SensorPosition{
     constructor(){
+        console.log("ddd");
         this.video;
         this.poseNet;
         this.pose;
 
+        console.log("eee");
         this.initPoseNet();
+        console.log("ggg1");
 
         this.posX_pre=0;
+        console.log("frfr");
     }
 
     // metodo per inizializzare poseNet

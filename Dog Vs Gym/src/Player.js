@@ -9,14 +9,14 @@ class Player {
 
         this.speed = 15;
 
-        this.dog = [];
+        this.dog = new Array();
 
         this.dog.push(createSprite(WIDTH / 2, HEIGHT - HEIGHT / 5, TX_WIDTH, TX_HEIGHT));
-        this.dog[0].addImage(loadImage('../assets/img/dog_head.png'));
+        this.dog[0].addImage(dog_head);
         this.dog[0].setCollider('rectangle', 0, 0, TX_WIDTH, TX_HEIGHT);
 
         this.dog.push(createSprite(WIDTH / 2, HEIGHT - HEIGHT / 5 + TX_HEIGHT, TX_WIDTH, TX_HEIGHT));
-        this.dog[1].addImage(loadImage('../assets/img/dog_tail.png'));
+        this.dog[1].addImage(dog_tail);
 
         this.grow(1);
 
@@ -38,7 +38,7 @@ class Player {
         this.dog[this.dog.length - 1].position.y = HEIGHT - HEIGHT / 5 + TX_HEIGHT * ++this.score;
 
         this.dog.splice(this.dog.length - 1, 0, createSprite(this.dog[this.dog.length - 1].position.x,HEIGHT - HEIGHT / 5 + TX_HEIGHT * (this.score - 1), TX_WIDTH, TX_HEIGHT));
-        this.dog[this.dog.length - 2].addImage(loadImage('../assets/img/dog_body.png'));
+        this.dog[this.dog.length - 2].addImage(dog_body);
     }
 
     // metodo per muovere il corpo del player sull'asse x
@@ -94,6 +94,7 @@ class Player {
         this.dog[this.dog.length-1].position.x=this.dog[this.dog.length-2].position.x;
         this.dog[this.dog.length-2].remove;
         this.dog.splice(this.dog.length-2, 1); 
+        console.log(this.score);
     }
 
     // metodo per aggiornare lo score del player
@@ -102,11 +103,8 @@ class Player {
         textFont(font);
         textSize(TX_HEIGHT);
         textAlign(CENTER, CENTER);
-        if(this.dog.length!=0){
-            text(this.score, this.dog[0].position.x + TX_WIDTH, this.dog[0].position.y);
-        }else{
-            this.score = 0;
-        }
+        console.log(this.score);
+        text(this.score, this.dog[0].position.x + TX_WIDTH, this.dog[0].position.y);
     }
 
     playAudioBark(){
