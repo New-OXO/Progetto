@@ -1,6 +1,6 @@
-const RANGE_EQUAL = WIDTH/12;
-const RANGE_CENTER = WIDTH/9;
-
+/*
+Classe per la gestione degli input da poseNet
+*/
 
 class SensorPosition{
     constructor(){
@@ -13,6 +13,7 @@ class SensorPosition{
         this.posX_pre=0;
     }
 
+    // metodo per inizializzare poseNet
     initPoseNet() {
         this.video = createCapture(VIDEO);
         this.video.size(width, height);
@@ -30,6 +31,7 @@ class SensorPosition{
         });
     }
 
+    // metodo per ottenere la direzione che si è fatta con il corpo
     getDirection(){
         if(this.pose){
 

@@ -21,14 +21,15 @@ class Player {
         this.grow(1);
     }
 
-    getX() {return this.dog[0].position.x;}
+    getX() {return this.dog[0].position.x;}  // metodo per ritornare le coordinate x della testa
 
-    getY() {return this.dog[0].position.y-TX_HEIGHT/2;}
+    getY() {return this.dog[0].position.y-TX_HEIGHT/2;}  // metodo per ritornare le coordinate y della testa
 
-    getScore() {return this.score;}
+    getScore() {return this.score;}  // metodo per ritornare lo score
 
-    setSpeed(speed) {this.speed = speed;}
+    setSpeed(speed) {this.speed = speed;}  // metodo per settare lo speed
 
+    // metodo per creare un nuovo sprite
     newSprite() {
         this.dog[this.dog.length - 1].position.y = HEIGHT - HEIGHT / 5 + TX_HEIGHT * ++this.score;
 
@@ -36,21 +37,21 @@ class Player {
         this.dog[this.dog.length - 2].addImage(loadImage('../assets/img/dog_body.jpeg'));
     }
 
-    //main
+    // metodo per muovere il corpo del player sull'asse x
     move(direction) {
         let offset = 0;
 
-        switch(direction) {
+        switch(direction) {  // in base alla direzione:
             case 'center_screen':
-                this.dog[0].position.x = WIDTH / 2;
+                this.dog[0].position.x = WIDTH / 2;     // setto la x a meta dello schermo
                 break;
 
             case 'left':
-                offset -= this.speed;
+                offset -= this.speed;  // setto l'offset alla velocità negativa
                 break;
 
             case 'right':
-                offset += this.speed;
+                offset += this.speed;  // setto l'offset a 
                 break;
         }
 
@@ -66,7 +67,7 @@ class Player {
         }
     }
 
-    //main
+    // metodo per disegnare il corpo del player
     draw() {
         for(let i = 0; i < this.dog.length; i++) {
             drawSprite(this.dog[i]);
@@ -75,12 +76,14 @@ class Player {
         this.writeScore();
     }
 
+    // metodo per fare allungare il corpo del player
     grow(num) {    
         for(let i = 0; i < num; i++) {
             this.newSprite();
         }
     }
 
+    // metodo per rimuovere un elemento dal corpo del player
     remove(){
         this.score-=1;
         this.dog[this.dog.length-1].position.y=this.dog[this.dog.length-2].position.y;
@@ -89,6 +92,7 @@ class Player {
         this.dog.splice(this.dog.length-2, 1); 
     }
 
+    // metodo per aggiornare lo score del player
     writeScore(){
         fill('#000000');
         textSize(TX_HEIGHT);
