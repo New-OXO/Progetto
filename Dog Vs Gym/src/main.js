@@ -89,13 +89,19 @@ function draw() {
 
         bg();
 
+        fill(255,117, 20);
+        textFont(font);
+        textAlign(CENTER, CENTER);
+        textSize(HEIGHT/7);
+        text("Dog VS Gym", WIDTH/2, HEIGHT/5);
+
         startBtn.draw();
         if(mouseIsPressed) {    
             start = startBtn.isPressed(mouseX, mouseY);
         }
-        textAlign(CENTER, CENTER);
-        textSize(7);
-        text("Icons made byhttps://www.freepik.com from https://www.flaticon.com ---- Sound by https://www.zapsplat.com/", WIDTH/4, HEIGHT-HEIGHT/15);
+        //textAlign(CENTER, CENTER);
+        //textSize(7);
+        //text("Icons made byhttps://www.freepik.com from https://www.flaticon.com ---- Sound by https://www.zapsplat.com/", WIDTH/4, HEIGHT-HEIGHT/15);
     } else {
         //background(meadow);
         menu.stop();
