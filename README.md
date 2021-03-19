@@ -10,7 +10,7 @@ Lo scopo del gioco è cercare di mangiare più hotdog possibili in modo da sopra
 punteggio che è contrassegnato sull'ostacolo stesso, se la dimensione invece è minore del punteggio il gioco finisce.
 Per aumentare la dimensione del bassotto si dovranno raccogliere degli hotdog che di tanto in tanto sono presenti nel percorso.
 
-![Immagine di gioco](https://raw.githubusercontent.com/New-OXO/Progetto/main/src/icona.png)
+![Immagine di gioco](https://raw.githubusercontent.com/New-OXO/Progetto/main/images/first_idea.png)
 </br></br>
 
 ### Tecnologie Utilizzate
